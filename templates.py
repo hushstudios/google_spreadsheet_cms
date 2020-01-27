@@ -24,25 +24,32 @@ def downloadData(keyfile, location):
     gsheet = GoogleAPI.GSheets(keyfile)
     
 
-    # First, download Park Life tab by feeding the ("spreadsheet name", "spreadsheet tab name")
-    objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Park Life") 
+    # First, download lay out data tab by feeding the ("spreadsheet name", "spreadsheet tab name")
+    objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Layout Data") 
     values = objects.get_all_values()
     
     for rowIndex in range(1, len(values)):
-        assetReady = (getCell("Asset Ready?", rowIndex, values))
+        imgObj = {}
+        imgObj["uid"] = (getCell("UID", rowIndex, values));
+        imgObj["category"] = getCell("Category", rowIndex, values);
+        imgObj["num_images"] = getCell("# of Images", rowIndex, values);
+        
+        #1
+        imgObj["box1_width"] = getCell("Box 1 Width", rowIndex, values);
+        imgObj["box1_height"] = getCell("Box 1 Height", rowIndex, values);
+        imgObj["box1_xpos"] = (getCell("Box 1 X Pos", rowIndex, values));
+        imgObj["box1_ypos"] = (getCell("Box 1 Y Pos", rowIndex, values)); 
 
-        if assetReady == "TRUE": 
-            imgObj = {}
-            imgObj["file_name"] = (getCell("File Name", rowIndex, values));
-            imgObj["image_type"] = getCell("Image Type", rowIndex, values);
-            imgObj["collage_category"] = []
-            collage_category = getCell("Collage Category", rowIndex, values);
-            collage_categories = collage_category.split(",")
-            imgObj["collage_category"] = collage_categories
-            print imgObj["file_name"]
+        #2
+        #3
+        #4
+        #5
+        #6
 
-            # Add this assets to the list
-            data["images"].append(imgObj)
+        print imgObj["uid"]
+
+        # Add this assets to the list
+        data["images"].append(imgObj)
 
     # Write to file
     with io.open(location, 'w+', encoding='utf8') as json_file:
