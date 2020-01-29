@@ -44,7 +44,7 @@ def downloadData(keyfile, location):
 	gsheet = GoogleAPI.GSheets(keyfile)
 	
 
-	# First, download Park Life tab by feeding the ("spreadsheet name", "spreadsheet tab name")
+	# First, download each ollage tab by feeding the ("spreadsheet name", "spreadsheet tab name")
 	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Park Life") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "park_life")
@@ -60,6 +60,33 @@ def downloadData(keyfile, location):
 	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Building Amenities") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "amenities")
+
+	#Second, download the list for each category
+	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "List") 
+	values = objects.get_all_values(); 
+	data["tags"] = {}; 
+	data["tags"]["parklife"] = []
+	data["tags"]["amenities"] = []
+	data["tags"]["fenton"] = []
+	data["tags"]["regeneration"] = []
+
+
+	for rowIndex in range(1, len(values)):
+		regen_value = (getCell("Regeneration", rowIndex, values))
+		if len(regen_value): 
+			data["tags"]["regeneration"].append(regen_value)
+
+		parklife_value = (getCell("Park Life", rowIndex, values))
+		if len(parklife_value): 
+			data["tags"]["parklife"].append(parklife_value)
+
+		amenities_value = (getCell("Building Amenities", rowIndex, values))
+		if len(amenities_value): 
+			data["tags"]["amenities"].append(amenities_value)
+
+		fw_value = (getCell("Fenton Whelan", rowIndex, values))
+		if len(fw_value): 
+			data["tags"]["fenton"].append(fw_value)
 
 	# Write to file
 	with io.open(location, 'w+', encoding='utf8') as json_file:
