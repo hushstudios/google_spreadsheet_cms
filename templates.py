@@ -41,6 +41,8 @@ def downloadData(keyfile, location):
         box["height"] = int(getCell("Box 1 Height", rowIndex, values));
         box["xpos"] = int(getCell("Box 1 X Pos", rowIndex, values));
         box["ypos"] = int(getCell("Box 1 Y Pos", rowIndex, values)); 
+        box["type"] = (getCell("Box 1 Type", rowIndex, values)); 
+        box["order"] = 1; 
         imgObj["boxes"].append(box);
 
         #2
@@ -49,6 +51,8 @@ def downloadData(keyfile, location):
         box["height"] = int(getCell("Box 2 Height", rowIndex, values));
         box["xpos"] = int(getCell("Box 2 X Pos", rowIndex, values));
         box["ypos"] = int(getCell("Box 2 Y Pos", rowIndex, values)); 
+        box["type"] = (getCell("Box 2 Type", rowIndex, values)); 
+        box["order"] = 2
         imgObj["boxes"].append(box);
 
         #3
@@ -56,7 +60,9 @@ def downloadData(keyfile, location):
         box["width"] = int(getCell("Box 3 Width", rowIndex, values));
         box["height"] = int(getCell("Box 3 Height", rowIndex, values));
         box["xpos"] = int(getCell("Box 3 X Pos", rowIndex, values));
-        box["ypos"] = int(getCell("Box 3 Y Pos", rowIndex, values)); 
+        box["ypos"] = int(getCell("Box 3 Y Pos", rowIndex, values));
+        box["type"] = (getCell("Box 3 Type", rowIndex, values));  
+        box["order"] = 3
         imgObj["boxes"].append(box);
 
         #4
@@ -64,7 +70,9 @@ def downloadData(keyfile, location):
         box["width"] = int(getCell("Box 4 Width", rowIndex, values));
         box["height"] = int(getCell("Box 4 Height", rowIndex, values));
         box["xpos"] = int(getCell("Box 4 X Pos", rowIndex, values));
-        box["ypos"] = int(getCell("Box 4 Y Pos", rowIndex, values)); 
+        box["ypos"] = int(getCell("Box 4 Y Pos", rowIndex, values));
+        box["type"] = (getCell("Box 4 Type", rowIndex, values));
+        box["order"] = 4
         imgObj["boxes"].append(box);
 
         if imgObj["num_images"] >= 5:
@@ -74,6 +82,8 @@ def downloadData(keyfile, location):
             box["height"] = int(getCell("Box 5 Height", rowIndex, values));
             box["xpos"] = int(getCell("Box 5 X Pos", rowIndex, values));
             box["ypos"] = int(getCell("Box 5 Y Pos", rowIndex, values));
+            box["type"] = (getCell("Box 5 Type", rowIndex, values)); 
+            box["order"] = 5
             imgObj["boxes"].append(box); 
 
         if imgObj["num_images"] == 6:
@@ -83,6 +93,8 @@ def downloadData(keyfile, location):
             box["height"] = int(getCell("Box 6 Height", rowIndex, values));
             box["xpos"] = int(getCell("Box 6 X Pos", rowIndex, values));
             box["ypos"] = int(getCell("Box 6 Y Pos", rowIndex, values));
+            box["type"] = (getCell("Box 6 Type", rowIndex, values)); 
+            box["order"] = 6
             imgObj["boxes"].append(box); 
 
         print imgObj["uid"]
