@@ -25,7 +25,7 @@ def downloadData(keyfile, location):
     
 
     # First, download lay out data tab by feeding the ("spreadsheet name", "spreadsheet tab name")
-    objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Layout Data") 
+    objects = gsheet.download("ParkModern_CMS", "Layout Data") 
     values = objects.get_all_values()
     
     for rowIndex in range(1, len(values)):
