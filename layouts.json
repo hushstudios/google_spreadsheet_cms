@@ -1,0 +1,53 @@
+{
+    "collages": [
+        {
+            "category": "A", 
+            "boxes": [
+                {
+                    "xpos": 263, 
+                    "animation": "TO_RIGHT", 
+                    "type": "hero", 
+                    "ypos": 434, 
+                    "order": 1
+                }, 
+                {
+                    "xpos": 1821, 
+                    "animation": "TO_RIGHT", 
+                    "type": "hero", 
+                    "ypos": 435, 
+                    "order": 2
+                }, 
+                {
+                    "xpos": 1821, 
+                    "animation": "TO_RIGHT", 
+                    "type": "tone", 
+                    "ypos": 90, 
+                    "order": 3
+                }, 
+                {
+                    "xpos": 1821, 
+                    "animation": "TO_RIGHT", 
+                    "type": "tone", 
+                    "ypos": 435, 
+                    "order": 4
+                }, 
+                {
+                    "xpos": 1821, 
+                    "animation": "TO_RIGHT", 
+                    "type": "tone", 
+                    "ypos": 1150, 
+                    "order": 5
+                }, 
+                {
+                    "xpos": 2533, 
+                    "animation": "TO_RIGHT", 
+                    "type": "tone", 
+                    "ypos": 435, 
+                    "order": 6
+                }
+            ], 
+            "num_images": 6, 
+            "uid": "A"
+        }
+    ]
+}
