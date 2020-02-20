@@ -19,13 +19,15 @@ def parseSheet(values, data, key):
 
 		if assetReady == "TRUE": 
 			imgObj = {}
-			imgObj["file_name"] = (getCell("File Name", rowIndex, values));
+			imgObj["number"] = int(getCell("Number", rowIndex, values)); 
+			imgObj["portrait_file_name"] = (getCell("Portrait File Name", rowIndex, values));
+			imgObj["landscape_file_name"] = (getCell("Landscape File Name", rowIndex, values));
 			imgObj["image_type"] = getCell("Image Type", rowIndex, values);
 			imgObj["collage_category"] = []
 			collage_category = getCell("Collage Category", rowIndex, values);
 			collage_categories = collage_category.split(",")
 			imgObj["collage_category"] = collage_categories
-			print (key + ": " + imgObj["file_name"])
+			print (key + ": " + imgObj["portrait_file_name"])
 
 			# Add this assets to the list
 			data[key].append(imgObj)
@@ -45,24 +47,24 @@ def downloadData(keyfile, location):
 	
 
 	# First, download each ollage tab by feeding the ("spreadsheet name", "spreadsheet tab name")
-	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Park Life") 
+	objects = gsheet.download("ParkModern_CMS", "Park Life") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "park_life")
 
-	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Regeneration") 
+	objects = gsheet.download("ParkModern_CMS", "Regeneration") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "regeneration")
 	
-	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Fenton Whelan") 
+	objects = gsheet.download("ParkModern_CMS", "Fenton Whelan") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "fenton")
 
-	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "Building Amenities") 
+	objects = gsheet.download("ParkModern_CMS", "Building Amenities") 
 	_values = objects.get_all_values()
 	parseSheet(_values, data, "amenities")
 
 	#Second, download the list for each category
-	objects = gsheet.download("ParkModern_Collage_Image_Tracker", "List") 
+	objects = gsheet.download("ParkModern_CMS", "List") 
 	values = objects.get_all_values(); 
 	data["tags"] = {}; 
 	data["tags"]["parklife"] = []
