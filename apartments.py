@@ -17,37 +17,41 @@ def downloadData(keyfile, location):
 
 	# Set up JSON
 	data = {}
- 	data["apartments"] = [];
- 	data["floorplates"] = []; 
-
+	data["floors"] = {};
+	data["asset_ids"] = [];
 
 	# Download from Google Sheets
 	# https://github.com/burnash/gspread
 	# https://github.com/googleapis/oauth2client
 	gsheet = GoogleAPI.GSheets(keyfile)
 
-	# First, download each apartment tab by feeding the ("spreadsheet name", "spreadsheet tab name")
+
+	#Download floor plates
+	objects = gsheet.download("ParkModern_CMS", "Floorplates") 
+	values = objects.get_all_values(); 
+
+	for rowIndex in range(1, len(values)):
+		level = getCell("Floor", rowIndex, values); 
+		data["floors"][level] = {}; 
+		data["floors"][level]["svgs"] = getCell("Floorplate SVG", rowIndex, values)
+		data["floors"][level]["apartments"] = []; 
+
+	# download each apartment tab by feeding the ("spreadsheet name", "spreadsheet tab name")
 	objects = gsheet.download("ParkModern_CMS", "Apartment Overview") 
 	values = objects.get_all_values();
-	assetReady = (getCell("Asset Ready?", rowIndex, values))
-		if assetReady:
-			aptObj = {}
-			aptObj["number"] = getCell("Apartment #", rowIndex, values)
-			aptObj["unit"] = getCell("Unit #", rowIndex, values)
-			aptObj["area"] = getCell("Area", rowIndex, values)
-			aptObj["terraces"] = getCell("Terraces", rowIndex, values)
-			aptObj["level"] = getCell("Level", rowIndex, values)
-			aptObj["bedrooms"] = getCell("Bedrooms", rowIndex, values)
 
-	#Second, download the floorplates
-	objects = gsheet.download("ParkModern_CMS", "List") 
-	values = objects.get_all_values(); 
-	data["tags"] = {}; 
-	data["tags"]["parklife"] = []
-	data["tags"]["amenities"] = []
-	data["tags"]["fenton"] = []
-	data["tags"]["regeneration"] = []
-
+	for rowIndex in range(1, len(values)):
+		aptLevel = getCell("Level", rowIndex, values)
+		aptObj = {}
+		aptObj["number"] = getCell("Apartment #", rowIndex, values)
+		aptObj["unit"] = getCell("Unit #", rowIndex, values)
+		aptObj["area"] = getCell("Area", rowIndex, values)
+		aptObj["terraces"] = getCell("Terraces", rowIndex, values)
+		aptObj["bedrooms"] = getCell("Bedrooms", rowIndex, values)
+		aptObj["bedrooms"] = getCell("Bedroom Strings", rowIndex, values)
+		aptObj["image1"] = getCell("Image 1", rowIndex, values)
+		aptObj["image2"] = getCell("Image 3", rowIndex, values)
+		data["floors"][aptLevel]["apartments"].append(aptObj) 
 
 	# Write to file
 	with io.open(location, 'w+', encoding='utf8') as json_file:

@@ -1,53 +1,79 @@
 {
     "collages": [
         {
-            "category": "A", 
             "boxes": [
                 {
                     "xpos": 263, 
-                    "animation": "TO_RIGHT", 
+                    "animation": "TO_LEFT", 
                     "type": "hero", 
                     "ypos": 434, 
-                    "order": 1
+                    "order": "a"
                 }, 
                 {
                     "xpos": 1821, 
                     "animation": "TO_RIGHT", 
                     "type": "hero", 
                     "ypos": 435, 
-                    "order": 2
+                    "order": "b"
                 }, 
                 {
                     "xpos": 1821, 
-                    "animation": "TO_RIGHT", 
+                    "animation": "TO_TOP", 
                     "type": "tone", 
                     "ypos": 90, 
-                    "order": 3
-                }, 
-                {
-                    "xpos": 1821, 
-                    "animation": "TO_RIGHT", 
-                    "type": "tone", 
-                    "ypos": 435, 
-                    "order": 4
-                }, 
-                {
-                    "xpos": 1821, 
-                    "animation": "TO_RIGHT", 
-                    "type": "tone", 
-                    "ypos": 1150, 
-                    "order": 5
+                    "order": "c"
                 }, 
                 {
                     "xpos": 2533, 
                     "animation": "TO_RIGHT", 
                     "type": "tone", 
                     "ypos": 435, 
-                    "order": 6
+                    "order": "d"
+                }, 
+                {
+                    "xpos": 1821, 
+                    "animation": "TO_BTM", 
+                    "type": "tone", 
+                    "ypos": 1150, 
+                    "order": "e"
                 }
             ], 
-            "num_images": 6, 
-            "uid": "A"
+            "num_images": 5, 
+            "uid": "A_5"
+        }, 
+        {
+            "boxes": [
+                {
+                    "xpos": 132, 
+                    "animation": "TO_LEFT", 
+                    "type": "hero", 
+                    "ypos": 382, 
+                    "order": "a"
+                }, 
+                {
+                    "xpos": 1719, 
+                    "animation": "TO_RIGHT", 
+                    "type": "hero", 
+                    "ypos": 608, 
+                    "order": "b"
+                }, 
+                {
+                    "xpos": 1719, 
+                    "animation": "TO_TOP", 
+                    "type": "tone", 
+                    "ypos": 122, 
+                    "order": "c"
+                }, 
+                {
+                    "xpos": 919, 
+                    "animation": "TO_BTM", 
+                    "type": "tone", 
+                    "ypos": 1091, 
+                    "order": "d"
+                }
+            ], 
+            "num_images": 4, 
+            "uid": "A_4"
         }
     ]
 }

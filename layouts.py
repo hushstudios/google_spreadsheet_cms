@@ -31,7 +31,6 @@ def downloadData(keyfile, location):
     for rowIndex in range(1, len(values)):
         imgObj = {}
         imgObj["uid"] = (getCell("UID", rowIndex, values));
-        imgObj["category"] = getCell("Category", rowIndex, values);
         imgObj["num_images"] = int(getCell("# of Images", rowIndex, values));
         imgObj["boxes"] = []; 
         
@@ -41,7 +40,6 @@ def downloadData(keyfile, location):
         box["ypos"] = int(getCell("Box A Y Pos", rowIndex, values)); 
         box["type"] = (getCell("Box A Type", rowIndex, values));
         box["animation"] = (getCell("Box A Animation", rowIndex, values));
-        print box["animation"]
         box["order"] = "a"; 
         imgObj["boxes"].append(box);
 
