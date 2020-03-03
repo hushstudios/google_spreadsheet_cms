@@ -34,7 +34,7 @@ def downloadData(keyfile, location):
 		level = getCell("Floor", rowIndex, values); 
 		data["floors"][level] = {}; 
 		data["floors"][level]["svgs"] = getCell("Floorplate SVG", rowIndex, values)
-		data["floors"][level]["apartments"] = []; 
+		data["floors"][level]["apartments"] = {}; 
 
 	# download each apartment tab by feeding the ("spreadsheet name", "spreadsheet tab name")
 	objects = gsheet.download("ParkModern_CMS", "Apartment Overview") 
@@ -42,16 +42,31 @@ def downloadData(keyfile, location):
 
 	for rowIndex in range(1, len(values)):
 		aptLevel = getCell("Level", rowIndex, values)
-		aptObj = {}
-		aptObj["number"] = getCell("Apartment #", rowIndex, values)
-		aptObj["unit"] = getCell("Unit #", rowIndex, values)
-		aptObj["area"] = getCell("Area", rowIndex, values)
-		aptObj["terraces"] = getCell("Terraces", rowIndex, values)
-		aptObj["bedrooms"] = getCell("Bedrooms", rowIndex, values)
-		aptObj["bedrooms"] = getCell("Bedroom Strings", rowIndex, values)
-		aptObj["image1"] = getCell("Image 1", rowIndex, values)
-		aptObj["image2"] = getCell("Image 3", rowIndex, values)
-		data["floors"][aptLevel]["apartments"].append(aptObj) 
+		aptNum = getCell("Apartment #", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum] = {}
+		data["floors"][aptLevel]["apartments"][aptNum]["unit"] = getCell("Unit #", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["area"] = getCell("Area", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["terraces"] = getCell("Terraces", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["bedrooms"] = getCell("Bedrooms", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["bedrooms"] = getCell("Bedroom Strings", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["image1"] = getCell("Image 1", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["image2"] = getCell("Image 3", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["room_info"] = []
+		#data["floors"][aptLevel]["apartments"].append(aptObj) 
+
+	# download room tab by feeding the ("spreadsheet name", "spreadsheet tab name")
+	objects = gsheet.download("ParkModern_CMS", "Room Overview") 
+	values = objects.get_all_values();
+
+	
+	for rowIndex in range(1, len(values)):
+		aptNum = getCell("Apartment #", rowIndex, values)
+		aptLevel = getCell("Level", rowIndex, values)
+		roomObj = {}
+		roomObj["id"] = getCell("Bedroom", rowIndex, values)
+		roomObj["main_image"] = getCell("Main Image", rowIndex, values)
+		roomObj["image_two"] = getCell("Image 2", rowIndex, values)
+		data["floors"][aptLevel]["apartments"][aptNum]["room_info"].append(roomObj) 
 
 	# Write to file
 	with io.open(location, 'w+', encoding='utf8') as json_file:
