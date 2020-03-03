@@ -2,7 +2,17 @@
     "asset_ids": [], 
     "floors": {
         "1": {
-            "svgs": "OUTLINE,STROKES,11,12,13,14,15,16,17,18,19", 
+            "apt_ids": [
+                "11", 
+                "12", 
+                "13", 
+                "14", 
+                "15", 
+                "16", 
+                "17", 
+                "18", 
+                "19"
+            ], 
             "apartments": {
                 "11": {
                     "room_info": [
@@ -334,10 +344,21 @@
                     "image1": "BEDROOM2", 
                     "unit": "18"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,11,12,13,14,15,16,17,18,19"
         }, 
         "3": {
-            "svgs": "OUTLINE,STROKES,31,32,33,34,35,36,37,38,39", 
+            "apt_ids": [
+                "31", 
+                "32", 
+                "33", 
+                "34", 
+                "35", 
+                "36", 
+                "37", 
+                "38", 
+                "39"
+            ], 
             "apartments": {
                 "39": {
                     "room_info": [
@@ -694,10 +715,21 @@
                     "image1": "BEDROOM2", 
                     "unit": "34"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,31,32,33,34,35,36,37,38,39"
         }, 
         "2": {
-            "svgs": "OUTLINE,STROKES,21,22,23,24,25,26,27,28,29", 
+            "apt_ids": [
+                "21", 
+                "22", 
+                "23", 
+                "24", 
+                "25", 
+                "26", 
+                "27", 
+                "28", 
+                "29"
+            ], 
             "apartments": {
                 "24": {
                     "room_info": [
@@ -1054,10 +1086,18 @@
                     "image1": "BEDROOM2", 
                     "unit": "29"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,21,22,23,24,25,26,27,28,29"
         }, 
         "5": {
-            "svgs": "OUTLINE,STROKES,51,52,53,54,55,56", 
+            "apt_ids": [
+                "51", 
+                "52", 
+                "53", 
+                "54", 
+                "55", 
+                "56"
+            ], 
             "apartments": {
                 "55": {
                     "room_info": [
@@ -1349,10 +1389,21 @@
                     "image1": "BEDROOM2", 
                     "unit": "52"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,51,52,53,54,55,56"
         }, 
         "4": {
-            "svgs": "OUTLINE,STROKES,41,42,43,44,45,46,47,48,49", 
+            "apt_ids": [
+                "41", 
+                "42", 
+                "43", 
+                "44", 
+                "45", 
+                "46", 
+                "47", 
+                "48", 
+                "49"
+            ], 
             "apartments": {
                 "48": {
                     "room_info": [
@@ -1709,10 +1760,17 @@
                     "image1": "BEDROOM2", 
                     "unit": "41"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,41,42,43,44,45,46,47,48,49"
         }, 
         "7": {
-            "svgs": "OUTLINE,STROKES,71,72,73,74,75", 
+            "apt_ids": [
+                "71", 
+                "72", 
+                "73", 
+                "74", 
+                "75"
+            ], 
             "apartments": {
                 "75": {
                     "room_info": [
@@ -1954,10 +2012,17 @@
                     "image1": "BEDROOM3", 
                     "unit": "71"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,71,72,73,74,75"
         }, 
         "6": {
-            "svgs": "OUTLINE,STROKES,61,62,63,64,65", 
+            "apt_ids": [
+                "61", 
+                "62", 
+                "63", 
+                "64", 
+                "65"
+            ], 
             "apartments": {
                 "61": {
                     "room_info": [
@@ -2199,10 +2264,13 @@
                     "image1": "BEDROOM2", 
                     "unit": "65"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,61,62,63,64,65"
         }, 
         "9": {
-            "svgs": "OUTLINE,STROKES", 
+            "apt_ids": [
+                "91"
+            ], 
             "apartments": {
                 "91": {
                     "room_info": [
@@ -2289,10 +2357,14 @@
                     "image1": "LIVINGROOM3", 
                     "unit": "91"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES"
         }, 
         "8": {
-            "svgs": "OUTLINE,STROKES,81,82", 
+            "apt_ids": [
+                "81", 
+                "82"
+            ], 
             "apartments": {
                 "82": {
                     "room_info": [
@@ -2424,7 +2496,8 @@
                     "image1": "BEDROOM2", 
                     "unit": "81"
                 }
-            }
+            }, 
+            "svgs": "OUTLINE,STROKES,81,82"
         }
     }
 }

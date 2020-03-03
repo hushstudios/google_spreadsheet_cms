@@ -33,6 +33,7 @@ def downloadData(keyfile, location):
 	for rowIndex in range(1, len(values)):
 		level = getCell("Floor", rowIndex, values); 
 		data["floors"][level] = {}; 
+		data["floors"][level]["apt_ids"] = []
 		data["floors"][level]["svgs"] = getCell("Floorplate SVG", rowIndex, values)
 		data["floors"][level]["apartments"] = {}; 
 
@@ -52,13 +53,14 @@ def downloadData(keyfile, location):
 		data["floors"][aptLevel]["apartments"][aptNum]["image1"] = getCell("Image 1", rowIndex, values)
 		data["floors"][aptLevel]["apartments"][aptNum]["image2"] = getCell("Image 3", rowIndex, values)
 		data["floors"][aptLevel]["apartments"][aptNum]["room_info"] = []
+		data["floors"][aptLevel]["apt_ids"].append(aptNum)
 		#data["floors"][aptLevel]["apartments"].append(aptObj) 
 
 	# download room tab by feeding the ("spreadsheet name", "spreadsheet tab name")
 	objects = gsheet.download("ParkModern_CMS", "Room Overview") 
 	values = objects.get_all_values();
 
-	
+
 	for rowIndex in range(1, len(values)):
 		aptNum = getCell("Apartment #", rowIndex, values)
 		aptLevel = getCell("Level", rowIndex, values)
